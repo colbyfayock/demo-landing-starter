@@ -1,0 +1,143 @@
+@import "@styles/settings/__settings";
+
+.title {
+
+  color: $color-brand-purple;
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 4rem;
+
+  @media (max-width: 720px) {
+    font-size: 3rem;
+  }
+
+}
+
+.subtitle {
+
+  font-size: 2rem;
+  text-align: center;
+  margin: -3rem 0 4rem;
+
+  @media (max-width: 720px) {
+    font-size: 1.5rem;
+  }
+
+}
+
+.cartHeading {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  font-size: 2.5rem;
+
+  svg {
+    margin-right: .2em;
+  }
+
+}
+
+.cartTotal {
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  font-size: 1.8rem;
+  font-weight: bold
+
+}
+
+.cartItems {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: solid 1px gray;
+
+    &:last-child {
+      border-bottom: solid 1px gray;
+    }
+
+    &.cartNoItems {
+      justify-content: center;
+    }
+
+  }
+
+}
+
+
+
+.heading {
+
+  font-size: 3.2rem;
+
+  @media (max-width: 720px) {
+    font-size: 2rem;
+  }
+
+}
+
+.grid {
+
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 60em;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 3rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+  }
+
+}
+
+.card {
+
+  margin: 1rem;
+  padding: 1.5rem;
+  flex-basis: calc(50% - 2rem);
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+
+  @media (min-width: 960px ) {
+    flex-basis: calc(33.33% - 2rem);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    padding: .5em;
+    border-radius: .5em;
+    margin: 0 -.5em 1em;
+  }
+
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0 0 1em;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+}
