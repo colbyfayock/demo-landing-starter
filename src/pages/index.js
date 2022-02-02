@@ -1,55 +1,13 @@
-import { useState } from 'react';
 import Head from 'next/head'
-import { FaShoppingCart } from 'react-icons/fa';
 
 import Layout from '@components/Layout';
+import Section from '@components/Section';
 import Container from '@components/Container';
 import Button from '@components/Button';
 
 import styles from '@styles/Home.module.scss'
 
-import products from '@data/products.json';
-
-const defaultCartState = {
-  items: {}
-};
-
 export default function Home() {
-  const [cart, updateCart] = useState(defaultCartState)
-
-  const cartItems = Object.keys(cart.items).map(id => {
-    const product = products.find(p => p.id === id);
-    return {
-      ...product,
-      quantity: cart.items[id],
-      subtotal: product.price * cart.items[id]
-    }
-  });
-
-  const subtotal = cartItems.map(({ subtotal }) => subtotal).reduce((prev, current) => prev + current, 0);
-
-  /**
-   * addItemToCart
-   */
-
-  function addItemToCart(id) {
-    updateCart(prev => {
-      const { items } = prev;
-
-      if ( items[id] > 0 ) {
-        items[id] = items[id] + 1;
-      } else {
-        items[id] = 1;
-      }
-
-      return {
-        ...prev,
-        items
-      }
-    })
-
-  }
-
   return (
     <Layout>
       <Head>
@@ -58,57 +16,89 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container>
-        <h1 className={styles.title}>
-          Space Jelly Shop
-        </h1>
+      <Section>
+        <Container>
+          <h1 className={styles.title}>
+            Space Jelly
+          </h1>
 
-        <p className={styles.subtitle}>
-          The best space jellyfish swag in the universe!
-        </p>
+          <p className={styles.subtitle}>
+            Cosmic web dev tutorials that will shock you with joy!
+          </p>
+        </Container>
+      </Section>
 
-        <div className={styles.cart}>
-          <h2 className={styles.cartHeading}>
-            <FaShoppingCart /> Cart
+      <Section backgroundColor="primary">
+        <Container>
+          <h2 className={styles.heading}>
+            Latest Posts
           </h2>
 
-          <ul className={styles.cartItems}>
-            {cartItems.length > 0 && cartItems.map(item => {
-              return (
-                <li key={item.id}>
-                  <span>{ item.title } x { item.quantity }</span>
-                  <span>${ item.subtotal.toFixed(2) }</span>
-                </li>
-              );
-            })}
-            {cartItems.length === 0 && (
-              <li className={styles.cartNoItems}>No Items</li>
-            )}
+          <ul className={styles.posts}>
+            <li>
+              <a href="https://spacejelly.dev/posts/how-to-automatically-tag-categorize-images-using-ai-with-google-vision-cloudinary/">
+                How to Automatically Tag & Categorize Images Using AI with Google Vision & Cloudinary
+              </a>
+            </li>
+            <li>
+              <a href="https://spacejelly.dev/posts/how-to-authenticate-spotify-web-api-requests-in-next-js-with-netlify-api-auth/">
+                How to Authenticate Spotify Web API Requests in Next.js with Netlify API Auth
+              </a>
+            </li>
+            <li>
+              <a href="https://spacejelly.dev/posts/how-to-generate-personalized-social-media-cards-for-landing-pages-with-next-js-cloudinary/">
+                How to Generate Personalized Social Media Cards for Landing Pages with Next.js & Cloudinary
+              </a>
+            </li>
           </ul>
+        </Container>
+      </Section>
 
+      <Section>
+        <Container>
+          <h2 className={styles.heading}>
+            Courses
+          </h2>
 
-          <p className={styles.cartTotal}>
-            <span className={styles.cartValue}>${ subtotal > 0 ? subtotal.toFixed(2) : '0.00'}</span>
-          </p>
-        </div>
+          <ul className={styles.posts}>
+            <li>
+              <a href="https://egghead.io/courses/create-an-ecommerce-store-with-next-js-and-stripe-checkout-562c?af=atzgap">
+                Create an eCommerce Store with Next.js and Stripe Checkout
+              </a>
+            </li>
+            <li>
+              <a href="https://spacejelly.dev/levelupecommerce">
+                Ecommerce on the Jamstack
+              </a>
+            </li>
+            <li>
+              <a href="https://fromdesignto.dev/">
+                From Design to Development
+              </a>
+            </li>
+          </ul>
+        </Container>
+      </Section>
 
-        <ul className={styles.grid}>
-          {products.map(product => {
-            const { id, title, image, description, price } = product;
-            return (
-              <li key={id} className={styles.card}>
-                <img src={image} alt={title} />
-                <h3>{ title }</h3>
-                <p>${ price }</p>
-                <p>{ description }</p>
-                <p>
-                  <Button onClick={() => addItemToCart(id)}>Add to Cart</Button>
-                </p>
-              </li>
-            )
-          })}
-        </ul>
-      </Container>
+      <Section backgroundColor="secondary">
+        <Container>
+          <h2 className={styles.heading}>
+            Have you scrolled down here yet? 🧐
+          </h2>
+
+          <p>IDK 🤷‍♂️</p>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <h2 className={styles.heading}>
+            Magic 🪄
+          </h2>
+
+          <p>🚀</p>
+        </Container>
+      </Section>
     </Layout>
   )
 }
