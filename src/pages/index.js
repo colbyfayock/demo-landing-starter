@@ -28,7 +28,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section backgroundColor="primary">
+      <Section>
         <Container>
           <h2 className={styles.heading}>
             Latest Posts
@@ -54,7 +54,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section>
+      <Section backgroundColor="primary">
         <Container>
           <h2 className={styles.heading}>
             Courses
@@ -83,6 +83,36 @@ export default function Home() {
       <Section backgroundColor="secondary">
         <Container>
           <h2 className={styles.heading}>
+            Filler content
+          </h2>
+
+          <p>There can be something cool here too.</p>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <h2 className={styles.heading}>
+            Filler content
+          </h2>
+
+          <p>There can be something cool here too.</p>
+        </Container>
+      </Section>
+
+      <Section backgroundColor="primary">
+        <Container>
+          <h2 className={styles.heading}>
+            Magic 🪄
+          </h2>
+
+          <p>🚀</p>
+        </Container>
+      </Section>
+
+      <Section backgroundColor="secondary">
+        <Container>
+          <h2 className={styles.heading}>
             Have you scrolled down here yet? 🧐
           </h2>
 
@@ -93,10 +123,10 @@ export default function Home() {
       <Section>
         <Container>
           <h2 className={styles.heading}>
-            Magic 🪄
+            Call to Action
           </h2>
 
-          <p>🚀</p>
+          <p>Sign up now!</p>
         </Container>
       </Section>
     </Layout>
